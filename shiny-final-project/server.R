@@ -32,15 +32,20 @@ new_data <- data %>%
     mutate(tot_active = sum(Active, na.rm = TRUE)) %>%
     ## Compute monthly death and recover rates
     mutate(monthly_death_rate = tot_death / tot_confirmed) %>%
-    mutate(monthly_recover_rate = tot_recover / tot_confirmed) %>%
+    mutate(monthly_recover_rate = tot_recover / tot_confirmed)
     ## Leave only the useful variables
     
     ##### SPECIAL COMMENT FOR WILLIAM: I HAVE CALCULATED THE TOTAL VALUES ACCORDING TO MONTH FRO YOU
     
-    select(Country.Region, month, tot_confirmed, tot_death, tot_recover, tot_active,
-           monthly_death_rate, monthly_recover_rate)
+    #select(Country.Region, month, tot_confirmed, tot_death, tot_recover, tot_active,
+    #       monthly_death_rate, monthly_recover_rate)
 
-## Begin server
+barData <- new_data %>% 
+    group_by(WHO.Region, month) %>% 
+    summarize(totalDeaths = sum(Deaths), totalConfirmed = sum(Confirmed), totalRecovered = sum(Recovered))
+
+
+# ## Begin server
 shinyServer(function(input, output) {
     ## create a function to manipulate raw data
     sample <- reactive({
@@ -56,7 +61,7 @@ shinyServer(function(input, output) {
                 filter(Country.Region %in% input$country)
         }
     })
-    ## Create a ui in server file due to the number of countries is large 
+    ## Create a ui in server file due to the number of countries is large
     output$country <- renderUI({
         checkboxGroupInput(inputId = "country", label = "Select countries",
                            choices = unique(new_data$Country.Region))
@@ -75,5 +80,13 @@ shinyServer(function(input, output) {
             geom_line(aes(x = month, y = monthly_recover_rate,
                           group = Country.Region, color = Country.Region, na.rm = TRUE))+
             labs(x = "Month", y = "Monthly Recover Rate")
+    })
+    
+    ## Generate the bar plot of the statistics of Covid in different WHO.Region
+    output$barPlot <- renderPlotly({
+        argument <- rlang::sym(input$category)
+        ggplot(barData, 
+               mapping = aes(x = month, y = !!argument, fill = WHO.Region)) +
+            geom_bar(stat = "identity", position = "dodge")
     })
 })
