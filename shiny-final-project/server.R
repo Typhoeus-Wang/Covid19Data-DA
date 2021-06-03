@@ -89,4 +89,7 @@ shinyServer(function(input, output) {
                mapping = aes(x = month, y = !!argument, fill = WHO.Region)) +
             geom_bar(stat = "identity", position = "dodge")
     })
+    output$data <- renderDataTable({
+        CovidTable
+    })
 })
