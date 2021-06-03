@@ -45,6 +45,7 @@ barData <- new_data %>%
     summarize(totalDeaths = sum(Deaths), totalConfirmed = sum(Confirmed), totalRecovered = sum(Recovered))
 
 
+
 # ## Begin server
 shinyServer(function(input, output) {
     ## create a function to manipulate raw data
@@ -89,7 +90,9 @@ shinyServer(function(input, output) {
                mapping = aes(x = month, y = !!argument, fill = WHO.Region)) +
             geom_bar(stat = "identity", position = "dodge")
     })
+    
+    ## Generate the data table
     output$data <- renderDataTable({
-        CovidTable
+        new_data
     })
 })

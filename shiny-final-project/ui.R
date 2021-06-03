@@ -122,7 +122,7 @@ shinyUI(navbarPage(title = "Covid-19 Analysis",
                                           )
                             ),
                    tabPanel("Table",
-                            tableOutput("data1")
+                            dataTableOutput("data")
                             )
                    
                    )
