@@ -1,0 +1,13 @@
+name: shiny-final-project
+title: shiny-final-project
+username:
+account: ruiboc
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4223914
+bundleId: 4682459
+url: https://ruiboc.shinyapps.io/shiny-final-project/
+when: 1622946159.57688
+lastSyncTime: 1622946159.57688
+asMultiple: FALSE
+asStatic: FALSE

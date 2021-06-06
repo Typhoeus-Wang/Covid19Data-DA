@@ -33,20 +33,17 @@ new_data <- data %>%
     ## Compute monthly death and recover rates
     mutate(monthly_death_rate = tot_death / tot_confirmed) %>%
     mutate(monthly_recover_rate = tot_recover / tot_confirmed)
-    ## Leave only the useful variables
-    
-    ##### SPECIAL COMMENT FOR WILLIAM: I HAVE CALCULATED THE TOTAL VALUES ACCORDING TO MONTH FRO YOU
-    
-    #select(Country.Region, month, tot_confirmed, tot_death, tot_recover, tot_active,
-    #       monthly_death_rate, monthly_recover_rate)
 
+## bar graph related data set
 barData <- new_data %>% 
+    ## group by WHO region first and then within the region, group by month
     group_by(WHO.Region, month) %>% 
+    ## generate the total death, recover, and active number
     summarize(totalDeaths = sum(Deaths), totalConfirmed = sum(Confirmed), totalRecovered = sum(Recovered))
 
 
 
-# ## Begin server
+## Begin server
 shinyServer(function(input, output) {
     ## create a function to manipulate raw data
     sample <- reactive({
