@@ -40,10 +40,13 @@ shinyUI(navbarPage(title = "Covid-19 Analysis",
                             br(),
                             h2("Table", style = "color:Purple"),
                             h3("Offers abilities to"),
-                            h4("- present the data set we used"),
+
                             h4("- select what variables to present"),
-                            hr(),
-                            img(src = "question.jpg", height = 450, width = 750, align = "right"),
+                            h4("- View in a data table form"),
+                            h4("- Look at the specific data by searching key words at the search bar"),
+                            h4("- Return the rank of differenct categories"),
+                            img(src = "question.jpg", height = 450, width = 750, align = "center"),
+
                             h1("Conclusion/Analysis"),
                             p("- From plot1, we found that on the first and month, 
                                there are not a lot of countries that had death 
@@ -77,6 +80,20 @@ shinyUI(navbarPage(title = "Covid-19 Analysis",
                               "comparing to other WHO.Regions, and this might becuase that
                               American has the highest Comfirmed rate, which also will lead to a
                               hiest recovered rate"),
+                            p("- From the table, we found that Sudan has the highest",
+                              span("Death rate", style = "color:Red"),
+                              "even though it only has 53 cases in total. And we indicate that the reason why Sudan has such a high death rate for small amout of cases is due to the poverty."),
+                            br(),
+                            p("- We believe that the quality of the initial data set is reasonable. 
+                              The conclusions drawn from the data set are fair because, in the initial data set, 
+                              the data are about four kinds of data for all countries in the same period. 
+                              So the initial data set does not have a special bias against any particular data."),
+                            br(),
+                            p("- For advancing the project, 
+                              the initial data set can be collected continuously and the duration of the initial data can be extended. 
+                              When the epidemic is completely over, a new data set can be generated, 
+                              to better study the attitude and means of each country towards epidemic prevention. 
+                              The data sets can also be combined with GDP to investigate the relationship between GDP and epidemic prevention."),
                             hr(),
                             h1("App Creators"),
                             img(src = "team.jpg", height = 450, width = 750, align = "left"),
