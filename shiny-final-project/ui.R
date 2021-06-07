@@ -45,55 +45,7 @@ shinyUI(navbarPage(title = "Covid-19 Analysis",
                             h4("- View in a data table form"),
                             h4("- Look at the specific data by searching key words at the search bar"),
                             h4("- Return the rank of differenct categories"),
-                            img(src = "question.jpg", height = 450, width = 750, align = "center"),
-
-                            h1("Conclusion/Analysis"),
-                            p("- From plot1, we found that on the first and month, 
-                               there are not a lot of countries that had death 
-                               cases. However, since the thrid month, the death 
-                               rate started occurring in a lot of countries. And 
-                               we think this phenomenon is related to the feature 
-                               of Covid-19 virus has a terribly long incubation period.
-                               Because the incubation period cause people hard to realized
-                               that they got affected, and still went out meeting people, 
-                               which spreads the virus out more, therefore, since 
-                               more people got affcted, more deaths will happen."),
-                            br(),
-                            p("- From plot2, we found that the recover rate was
-                               higher than the death rate in all the countries,
-                               this phenomenon proved that the case fatality rate of
-                               Covid-19 virus is not very high."),
-                            br(),
-                            p("- From the bar plot, we found that the WHO.Region that has most obvious changes on the", 
-                              span("Confirmed rate", style = "color:Red"),
-                              "is American, which is increasing dramatically
-                               since month 4, and the second WHO.Region that has most changes is 
-                               Europe, however, on the seventh month, the confirmed rate of Europe
-                               is less than a half of American."),
-                            br(),
-                            p("- From the bar plot, we found that both American and Europe has very high", 
-                              span("Deaths rate", style = "color:Red"),
-                              "compared to other WHO.Regions. Especially American had
-                              reached over 8000000 Death cases."),
-                            p("- From the bar plot, we found that the American has the highest", 
-                              span("Recovered rate", style = "color:Red"),
-                              "comparing to other WHO.Regions, and this might becuase that
-                              American has the highest Comfirmed rate, which also will lead to a
-                              hiest recovered rate"),
-                            p("- From the table, we found that Sudan has the highest",
-                              span("Death rate", style = "color:Red"),
-                              "even though it only has 53 cases in total. And we indicate that the reason why Sudan has such a high death rate for small amout of cases is due to the poverty."),
-                            br(),
-                            p("- We believe that the quality of the initial data set is reasonable. 
-                              The conclusions drawn from the data set are fair because, in the initial data set, 
-                              the data are about four kinds of data for all countries in the same period. 
-                              So the initial data set does not have a special bias against any particular data."),
-                            br(),
-                            p("- For advancing the project, 
-                              the initial data set can be collected continuously and the duration of the initial data can be extended. 
-                              When the epidemic is completely over, a new data set can be generated, 
-                              to better study the attitude and means of each country towards epidemic prevention. 
-                              The data sets can also be combined with GDP to investigate the relationship between GDP and epidemic prevention."),
+                            
                             hr(),
                             h1("App Creators"),
                             img(src = "team.jpg", height = 450, width = 750, align = "left"),
@@ -157,6 +109,57 @@ shinyUI(navbarPage(title = "Covid-19 Analysis",
                                           )
                             )
                             
+                            ),
+                   tabPanel("Conclusion",
+                            img(src = "question.jpg", height = 450, width = 750, align = "center"),
+                            
+                            h1("Conclusion/Analysis"),
+                            p("- From plot1, we found that on the first and month, 
+                               there are not a lot of countries that had death 
+                               cases. However, since the thrid month, the death 
+                               rate started occurring in a lot of countries. And 
+                               we think this phenomenon is related to the feature 
+                               of Covid-19 virus has a terribly long incubation period.
+                               Because the incubation period cause people hard to realized
+                               that they got affected, and still went out meeting people, 
+                               which spreads the virus out more, therefore, since 
+                               more people got affcted, more deaths will happen."),
+                            br(),
+                            p("- From plot2, we found that the recover rate was
+                               higher than the death rate in all the countries,
+                               this phenomenon proved that the case fatality rate of
+                               Covid-19 virus is not very high."),
+                            br(),
+                            p("- From the bar plot, we found that the WHO.Region that has most obvious changes on the", 
+                              span("Confirmed rate", style = "color:Red"),
+                              "is American, which is increasing dramatically
+                               since month 4, and the second WHO.Region that has most changes is 
+                               Europe, however, on the seventh month, the confirmed rate of Europe
+                               is less than a half of American."),
+                            br(),
+                            p("- From the bar plot, we found that both American and Europe has very high", 
+                              span("Deaths rate", style = "color:Red"),
+                              "compared to other WHO.Regions. Especially American had
+                              reached over 8000000 Death cases."),
+                            p("- From the bar plot, we found that the American has the highest", 
+                              span("Recovered rate", style = "color:Red"),
+                              "comparing to other WHO.Regions, and this might becuase that
+                              American has the highest Comfirmed rate, which also will lead to a
+                              hiest recovered rate"),
+                            p("- From the table, we found that Sudan has the highest",
+                              span("Death rate", style = "color:Red"),
+                              "even though it only has 53 cases in total. And we indicate that the reason why Sudan has such a high death rate for small amout of cases is due to the poverty."),
+                            br(),
+                            p("- We believe that the quality of the initial data set is reasonable. 
+                              The conclusions drawn from the data set are fair because, in the initial data set, 
+                              the data are about four kinds of data for all countries in the same period. 
+                              So the initial data set does not have a special bias against any particular data."),
+                            br(),
+                            p("- For advancing the project, 
+                              the initial data set can be collected continuously and the duration of the initial data can be extended. 
+                              When the epidemic is completely over, a new data set can be generated, 
+                              to better study the attitude and means of each country towards epidemic prevention. 
+                              The data sets can also be combined with GDP to investigate the relationship between GDP and epidemic prevention."),
                             )
                    
                    )
