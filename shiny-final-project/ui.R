@@ -68,7 +68,11 @@ shinyUI(navbarPage(title = "Covid-19 Analysis",
                                                        ## Output the ui coded in the server file
                                                        uiOutput("country")
                                                        ),
-                                          mainPanel("Pandemic around the world in 2020",
+                                          mainPanel(
+                                                    h3("Pandemic around the world in 2020"),
+                                                    h4("These two graphs show the monthly death rate and monthly recover rate versus"),
+                                                    h4("the time which is measured in month. With line graphs, we could easily compare"),
+                                                    h4("the different situations and strategies each country uses in the pandemic."),
                                                     
                                                     ## put two graphs in a line
                                                     plotlyOutput("graph1"), 
@@ -86,7 +90,12 @@ shinyUI(navbarPage(title = "Covid-19 Analysis",
                                                                     choices = list("Confirmed" = "totalConfirmed", "Deaths" = "totalDeaths", Recovered = "totalRecovered"), 
                                                                     selected = "totalConfirmed")
                                                        ),
-                                          mainPanel("Pandemic around the world in 2020",
+                                          mainPanel(
+                                                    h3("Pandemic around the world in 2020"),
+                                                    h4("This bar plot shows the total confirmed cases, total death cases, and total recovered cases"),
+                                                    h4("of each WHO.Region in each month. With this plot, we can compare the situations in each WHO.Region."),
+                                                    h4("Thus, we could have a insight into the methods different region uses to cope with this pandemic."),
+                                            
                                                     ## Plot the bar plot
                                                     plotlyOutput("barPlot")
                                                     )
@@ -105,6 +114,9 @@ shinyUI(navbarPage(title = "Covid-19 Analysis",
                                                                           selected = "Confirmed")
                                                        ),
                                           mainPanel(
+                                                    h3("This table shows the data we used to create our plots and get conclusions"),
+                                                    h4("You can select what you interested data and table will present what you selected"),
+                                                    
                                                     dataTableOutput("data")
                                           )
                             )
