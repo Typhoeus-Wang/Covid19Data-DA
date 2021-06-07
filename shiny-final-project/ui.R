@@ -40,6 +40,8 @@ shinyUI(navbarPage(title = "Covid-19 Analysis",
                             br(),
                             h2("Table", style = "color:Purple"),
                             h3("Offers abilities to"),
+                            h4("- present the data set we used"),
+                            h4("- select what variables to present"),
                             hr(),
                             img(src = "question.jpg", height = 450, width = 750, align = "right"),
                             h1("Conclusion/Analysis"),
@@ -122,7 +124,22 @@ shinyUI(navbarPage(title = "Covid-19 Analysis",
                                           )
                             ),
                    tabPanel("Table",
-                            dataTableOutput("data")
+                            
+                            sidebarLayout(
+                                          sidebarPanel(
+                                                       ## Widget that allows users to select what variables of the obserations to present
+                                                       checkboxGroupInput("checkColumn", label = h3("Choose what data to present"), 
+                                                                          choices = list("Confirmed" = "Confirmed", "Deaths" = "Deaths", "Recovered" = "Recovered",
+                                                                                         "Active" = "Active", "total confirmed" = "tot_confirmed", "total deaths" = "tot_death",
+                                                                                         "total active" = "tot_active", "monthly death rate" = "monthly_death_rate", 
+                                                                                         "monthly recover rate" = "monthly_recover_rate"),
+                                                                          selected = "Confirmed")
+                                                       ),
+                                          mainPanel(
+                                                    dataTableOutput("data")
+                                          )
+                            )
+                            
                             )
                    
                    )

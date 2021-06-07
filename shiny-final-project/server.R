@@ -93,6 +93,8 @@ shinyServer(function(input, output) {
     
     ## Generate the data table
     output$data <- renderDataTable({
-        new_data
+        tableData <- new_data %>% 
+            select(c(Country.Region, Province.State, Date, WHO.Region, month, input$checkColumn))
+        tableData
     })
 })
